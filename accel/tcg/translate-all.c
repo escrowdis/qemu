@@ -1080,6 +1080,9 @@ static bool alloc_code_gen_buffer_anon(size_t size, int prot,
 {
     void *buf;
 
+#if defined(__APPLE__) && defined(MAC_OS_VERSION_11_0)
+    flags |= MAP_JIT;
+#endif
     buf = mmap(NULL, size, prot, flags, -1, 0);
     if (buf == MAP_FAILED) {
         error_setg_errno(errp, errno,

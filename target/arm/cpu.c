@@ -2321,7 +2321,7 @@ static void arm_host_initfn(Object *obj)
 {
     ARMCPU *cpu = ARM_CPU(obj);
 
-#ifdef CONFIG_KVM
+#if defined(CONFIG_KVM)
     kvm_arm_set_cpu_features_from_host(cpu);
 #else
     hvf_arm_set_cpu_features_from_host(cpu);

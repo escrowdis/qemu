@@ -16,7 +16,7 @@
 #include "sysemu/runstate.h"
 
 #include "qemu/main-loop.h"
-#include "sysemu/accel.h"
+#include "qemu/accel.h"
 
 bool hvf_allowed;
 HVFState *hvf_state;

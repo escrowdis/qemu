@@ -607,24 +607,24 @@ writev(int fd, const struct iovec *iov, int iov_cnt)
 }
 #endif
 
-#if defined(__APPLE__) && defined(MAC_OS_VERSION_11_0)
-static inline void qemu_thread_jit_write_protect(bool enabled)
-{
-    if (pthread_jit_write_protect_supported_np()) {
-        pthread_jit_write_protect_np(enabled);
-    }
-}
+// #if defined(__APPLE__) && defined(MAC_OS_VERSION_11_0)
+// static inline void qemu_thread_jit_write_protect(bool enabled)
+// {
+//     if (pthread_jit_write_protect_supported_np()) {
+//         pthread_jit_write_protect_np(enabled);
+//     }
+// }
 
-void qemu_thread_jit_execute(void)
-{
-    qemu_thread_jit_write_protect(true);
-}
+// void qemu_thread_jit_execute(void)
+// {
+//     qemu_thread_jit_write_protect(true);
+// }
 
-void qemu_thread_jit_write(void)
-{
-    qemu_thread_jit_write_protect(false);
-}
-#else
-void qemu_thread_jit_write(void) {}
-void qemu_thread_jit_execute(void) {}
-#endif
+// void qemu_thread_jit_write(void)
+// {
+//     qemu_thread_jit_write_protect(false);
+// }
+// #else
+// void qemu_thread_jit_write(void) {}
+// void qemu_thread_jit_execute(void) {}
+// #endif

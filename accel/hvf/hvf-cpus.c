@@ -411,7 +411,7 @@ __attribute__((weak)) void hvf_kick_vcpu_thread(CPUState *cpu)
     cpus_kick_thread(cpu);
 }
 
-static const CpusAccel hvf_cpus = {
+static const AccelOpsClass hvf_cpus = {
     .create_vcpu_thread = hvf_start_vcpu_thread,
     .kick_vcpu_thread = hvf_kick_vcpu_thread,
 
